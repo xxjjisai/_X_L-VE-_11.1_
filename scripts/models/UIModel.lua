@@ -1,0 +1,1 @@
+_G.UIModel = Model:DeriveClass("UIModel");
