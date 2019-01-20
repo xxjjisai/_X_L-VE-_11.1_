@@ -25,7 +25,10 @@ function UISystem:Update(dt)
             ActorMgr:RemoveActor(iActor)
 		end
 		if self.ui:button('Button') then
-			self:Trace(1,'Button!')
+            local iPlayer = ActorMgr:CreateActor("Player")
+            local iScene = self:GetCurScene();
+            iScene:AddActor(iPlayer);
+            SceneMgr:SetCurPlayer(iPlayer);
 		end
 	end
     ---------------------

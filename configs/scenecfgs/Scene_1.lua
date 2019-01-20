@@ -11,6 +11,6 @@ _G.Scene_1 =
         "RectangleRenderSystem",
         "LayerSortSystem",
         "SpriteRenderSystem",
-        "UISystem",
+        -- "UISystem",
     };
 }

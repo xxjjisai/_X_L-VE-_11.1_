@@ -26,6 +26,10 @@ function SceneMgr:GetCurPlayer()
     return self.iPlayer;
 end
 
+function SceneMgr:SetCurPlayer(iPlayer)
+    self.iPlayer = iPlayer;
+end
+
 function SceneMgr:GetCurScene()
     return self.tbCurScene;
 end
