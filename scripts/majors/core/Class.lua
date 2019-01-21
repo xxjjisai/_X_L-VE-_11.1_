@@ -14,6 +14,9 @@ function Class:GetClassName()
 end
 
 function Class:Trace(nType,...)
+	if not Option.bDebug then 
+		return 
+	end
 	local sType = "[Log] ";
 	if nType == 1 then 
 		sType = "[Log] " 
