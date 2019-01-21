@@ -28,22 +28,13 @@ function StorageMgr:GetInfo()
 end
 
 function StorageMgr:InitInfo()
-    local tbInfo = 
-    {
-        nStyleType          = 1,    -- 玩家装扮风格类型
-        nCurSceneID         = 1,    -- 玩家当前所处场景
-        tbData = { a = 1, b = 2, c = 3 },
-    }
+    local tbInfo = PlayerModel:GetDataHandler() or {};
     self.tbRoleInfo = tbInfo;
     self:Push(); 
 end
 
 function StorageMgr:Push()
-
-    if not Option.bStore then
-        return 
-    end
-
+    if not Option.bStore then return  end
     self:Trace(1,"-----------------Storage Push Start-------------------");
     local blob = Blob();
     blob:writeTable(self.tbRoleInfo);
@@ -65,13 +56,3 @@ function StorageMgr:ChangeValue(sType,nValue)
         end) 
     end
 end
-
--- function StorageMgr:StorePlayerPosition()
---     local iScene = SceneMgr:GetScene();
---     if iScene == nil then return end 
---     local iPlayer = iScene:GetPlayer();
---     if iPlayer == nil then return end
---     self.tbRoleInfo["nPlayerX"] = iPlayer:GetiCompo("Transform").x;
---     self.tbRoleInfo["nPlayerY"] = iPlayer:GetiCompo("Transform").y;
---     self:Push();
--- end

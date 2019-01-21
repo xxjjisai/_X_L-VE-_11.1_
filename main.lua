@@ -8,6 +8,7 @@ require("scripts/majors/base/Actor");
 require("scripts/majors/base/Compo");
 require("scripts/majors/base/Scene");
 require("scripts/majors/base/System");
+require("scripts/majors/base/Model");
 
 require("settings/Option");
 require("settings/include");

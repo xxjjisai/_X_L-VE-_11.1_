@@ -20,6 +20,7 @@ function Include:Import(pfn)
     self:ThirdPartyLibrary();
     self:GlobalManager();
     self:GlobalSystem();
+    self:GlobalModel();
     self:Trace(1," *** Do File Complete! *** ");
     pfn(0,nil);
 end
@@ -74,4 +75,9 @@ function Include:GlobalSystem()
     self:RequireHandler(strDir,"LayerSortSystem");
     self:RequireHandler(strDir,"SpriteRenderSystem");
     self:RequireHandler(strDir,"UISystem");
+end
+
+function Include:GlobalModel()
+    local strDir = "scripts/models/";
+    self:RequireHandler(strDir,"PlayerModel");
 end

@@ -16,3 +16,11 @@ end
 function Model:GetDataByKey(key)
     return self.tbDataList[key];
 end
+
+function Model:GetDataHandler()
+    return self.tbDataList;
+end
+
+function Model:Init()
+    self:Trace(1," Model:Init must be Implementation ")
+end
