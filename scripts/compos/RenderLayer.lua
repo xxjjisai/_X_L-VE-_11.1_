@@ -1,4 +1,4 @@
--- 矩形
+-- 渲染层级
 local RenderLayer = {};
 
 function RenderLayer:New(tbParams) 
