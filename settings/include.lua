@@ -35,6 +35,7 @@ function Include:ThirdPartyLibrary()
     Camera              = require(strDir.."Camera")();
     Blob                = require(strDir.."Blob");
     Utils               = require(strDir.."Utils");
+    Katsudo             = require(strDir.."katsudo");
     nuklear             = require("nuklear");
 end
 

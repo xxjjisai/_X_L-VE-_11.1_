@@ -1,7 +1,7 @@
 _G.Scene = Class:DeriveClass("Scene");
 
 function Scene:DeriveClass(sClassName)
-    local obj = {}; 
+    local obj = {};
     obj.sClassName = sClassName;
     obj.tbListenerList = {};                -- 侦听列表 
     obj.tbActorList = {};                   -- 演员列表
