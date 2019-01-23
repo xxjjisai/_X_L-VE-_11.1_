@@ -1,7 +1,7 @@
 _G.Option = 
 {
     bDebug = true;                                  -- [Y]是否为调试模式
-    bGameInfo = false;                              -- [Y]System及Actor信息
+    bGameInfo = true;                              -- [Y]System及Actor信息
     bDoFileComplete = false;                        -- [N]文件是否加载完成
     bMenuPlayed = true;                             -- [Y]是否播放赞助商
     bLog = false;                                   -- [Y]日志

@@ -8,6 +8,10 @@ function hitTestObject(obj1,obj2)
 	return false
 end
 
+function GetTime()
+    return os.time();
+end
+
 -- 碰撞检测（原形）
 function TestCollision(a,b)
     if a == nil or b == nil then return false end; 

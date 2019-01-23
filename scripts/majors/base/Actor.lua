@@ -46,3 +46,27 @@ function Actor:ChangeiCompoParam(tbProperty)
         end
     end
 end
+
+function Actor:Start()
+    for _,iCompo in pairs(self.tbiCompoList) do
+        if iCompo.Start then 
+            iCompo:Start(self);
+        end
+    end
+end
+
+function Actor:Update(dt)
+    for _,iCompo in pairs(self.tbiCompoList) do
+        if iCompo.Update then 
+            iCompo:Update(dt,self)
+        end
+    end
+end
+
+function Actor:Render()
+    for _,iCompo in pairs(self.tbiCompoList) do
+        if iCompo.Start then 
+            iCompo:Render();
+        end
+    end
+end
