@@ -1,7 +1,7 @@
 _G.LayerSortSystem = System:DeriveClass("LayerSortSystem");
 
 LayerSortSystem:SetRegisterCompo{
-   "RenderLayer",
+   "RenderLayer","Position","Size"
 }
 
 function LayerSortSystem:Update(dt)

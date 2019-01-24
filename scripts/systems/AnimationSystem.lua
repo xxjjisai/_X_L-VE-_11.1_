@@ -10,35 +10,39 @@ function AnimationSystem:Start()
       for _,iActor in ipairs(tbLayer) do 
          repeat
             if not self:GetRegisterCompo(iActor) then break end
-            local sImg = iActor:GetiCompo("Animate").sImg;
-            local iImage = AssetsMgr:GetTexture(sImg);
-            iActor:GetiCompo("Animate").iImage = iImage;
-            local nQuadW = iActor:GetiCompo("Animate").nQuadW;
-            local nQuadH = iActor:GetiCompo("Animate").nQuadH;
-            local nOffset = iActor:GetiCompo("Animate").nOffset;
-            local nStartFrame = iActor:GetiCompo("Animate").nStartFrame;
-            local nImgW,nImgH = iImage:getWidth(), iImage:getHeight();
-            local nCol = math.floor(nImgW/nQuadW);
-            local nRow = math.floor(nImgH/nQuadH);
-            iActor:GetiCompo("Animate").tbQuad = {};
-            local nFrame = 1;
-            iActor:GetiCompo("Animate").nCurFrame = nFrame;
-            for i = 0, nRow-1 do
-                for j = 0, nCol-1 do
-                  iActor:GetiCompo("Animate").tbQuad[nFrame] = love.graphics.newQuad(j*nQuadW, i*nQuadH, nQuadW, nQuadH, nImgW, nImgH);
-                  nFrame = nFrame + 1;
-                end
-            end
-            -- 根据偏移量裁剪序列帧,有点问题暂不可用
-            -- for i = 1, nOffset do 
-            --    table.remove(iActor:GetiCompo("Animate").tbQuad,i);
-            -- end
-            iActor:GetiCompo("Animate").nTotalPlayCount = iActor:GetiCompo("Animate").nTotalPlayCount - nOffset;
-            iActor:GetiCompo("Animate").iCurQuad = iActor:GetiCompo("Animate").tbQuad[nStartFrame or iActor:GetiCompo("Animate").nCurFrame];
+            self:ReSetFrame(iActor);
             self:Play(iActor);
          until true
       end
    end
+end
+
+function AnimationSystem:ReSetFrame(iActor)
+   local sImg = iActor:GetiCompo("Animate").sImg;
+   local iImage = AssetsMgr:GetTexture(sImg);
+   iActor:GetiCompo("Animate").iImage = iImage;
+   local nQuadW = iActor:GetiCompo("Animate").nQuadW;
+   local nQuadH = iActor:GetiCompo("Animate").nQuadH;
+   local nOffset = iActor:GetiCompo("Animate").nOffset;
+   local nStartFrame = iActor:GetiCompo("Animate").nStartFrame;
+   local nImgW,nImgH = iImage:getWidth(), iImage:getHeight();
+   local nCol = math.floor(nImgW/nQuadW);
+   local nRow = math.floor(nImgH/nQuadH);
+   iActor:GetiCompo("Animate").tbQuad = {};
+   local nFrame = 1;
+   iActor:GetiCompo("Animate").nCurFrame = nFrame;
+   for i = 0, nRow-1 do
+      for j = 0, nCol-1 do
+         iActor:GetiCompo("Animate").tbQuad[nFrame] = love.graphics.newQuad(j*nQuadW, i*nQuadH, nQuadW, nQuadH, nImgW, nImgH);
+         nFrame = nFrame + 1;
+      end
+   end
+   -- 根据偏移量裁剪序列帧,有点问题暂不可用
+   -- for i = 1, nOffset do 
+   --    table.remove(iActor:GetiCompo("Animate").tbQuad,i);
+   -- end
+   iActor:GetiCompo("Animate").nTotalPlayCount = iActor:GetiCompo("Animate").nTotalPlayCount - nOffset;
+   iActor:GetiCompo("Animate").iCurQuad = iActor:GetiCompo("Animate").tbQuad[nStartFrame or iActor:GetiCompo("Animate").nCurFrame];
 end
 
 function AnimationSystem:Update(dt)
@@ -66,6 +70,9 @@ function AnimationSystem:Update(dt)
                      if iActor:GetiCompo("Animate").nCurPlayCount >= nTotalPlayCount then 
                         iActor:GetiCompo("Animate").iCurQuad = nil;
                         iActor:GetiCompo("Animate").bRunning = false;
+                        if self.fComplete then 
+                           self.fComplete();
+                        end 
                         break;
                      else 
                         iActor:GetiCompo("Animate").nCurFrame = 1;
@@ -132,10 +139,11 @@ function AnimationSystem:Render()
    end 
 end
 
-function AnimationSystem:Play(iActor)
+function AnimationSystem:Play(iActor,pfn)
    if not iActor then 
       return;
    end
+   self.fComplete = pfn;
    iActor:GetiCompo("Animate").bRunning = true;
 end
 

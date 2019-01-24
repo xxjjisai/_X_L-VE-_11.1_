@@ -1,7 +1,7 @@
 _G.SpriteRenderSystem = System:DeriveClass("SpriteRenderSystem");
 
 SpriteRenderSystem:SetRegisterCompo{
-    "Sprite","Position"
+    "Sprite","Position","Size","Color"
 }
 
 function SpriteRenderSystem:Render()
