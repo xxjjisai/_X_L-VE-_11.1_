@@ -9,7 +9,9 @@ function hitTestObject(obj1,obj2)
 end
 
 function GetTime()
-    return os.time();
+    -- return socket.gettime()
+    -- return os.time();
+    return os.clock();
 end
 
 -- 碰撞检测（原形）

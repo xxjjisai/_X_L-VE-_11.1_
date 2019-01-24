@@ -37,6 +37,7 @@ function Include:ThirdPartyLibrary()
     Utils               = require(strDir.."Utils");
     Katsudo             = require(strDir.."katsudo");
     nuklear             = require("nuklear");
+    -- socket              = require("socket");
 end
 
 function Include:GlobalManager()
