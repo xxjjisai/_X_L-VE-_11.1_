@@ -61,6 +61,14 @@ function Scene:GetSystemList()
     return self.tbSystemList;
 end
 
+function Scene:GetSystemByName(sClassName)
+    for i,v in ipairs(self.tbSystemList) do 
+        if v.sClassName == sClassName then 
+            return v
+        end
+    end
+end
+
 function Scene:GetActorByTagType(sTagType)
     for _,iActor in ipairs (self.tbActorList) do 
         if iActor.sTagType == sTagType then 
