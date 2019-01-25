@@ -5,6 +5,7 @@ SceneMgr.nSceneID = 0;
 SceneMgr.bStart = false;
 SceneMgr.iPlayer = false;
 SceneMgr.tbSceneList = {};
+SceneMgr.nPlayerIndex = 1;
 
 function SceneMgr:Start()
     self.bStart = false;
@@ -107,6 +108,7 @@ function SceneMgr:Update(dt)
     local py = self.iPlayer:GetiCompo("Position").y;
     local pw = self.iPlayer:GetiCompo("Size").w;
     local ph = self.iPlayer:GetiCompo("Size").h;
+    -- print(self.iPlayer.sClassName,px, py ,pw ,ph)
     Camera:follow(px + pw * 0.5, py + ph * 0.5); 
 end 
 
@@ -180,6 +182,11 @@ function SceneMgr:KeyBoardDown(key, scancode, isrepeat)
                 iSystem:KeyBoardDown(key, scancode, isrepeat);
             end
         end
+
+        if key == "space" then 
+            self.nPlayerIndex = self.nPlayerIndex + 1;
+            self.iPlayer,self.nPlayerIndex = self.tbCurScene:GetPlayer(self.nPlayerIndex)
+        end 
     end
 end
 

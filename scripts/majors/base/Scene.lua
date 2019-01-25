@@ -85,3 +85,20 @@ end
 function Scene:UninstallSystem()
     self.tbSystemList = {};
 end
+
+function Scene:GetPlayer(nIndex)
+    local tbPlayerList = {};
+    for _,iActor in ipairs (self.tbActorList) do 
+        if iActor.sTagType == "Player" then 
+            table.insert(tbPlayerList, iActor);
+        end
+    end 
+    local iActor = nil;
+    if nIndex > #tbPlayerList then 
+        nIndex = 1;
+        iActor = tbPlayerList[nIndex]
+        return iActor,nIndex
+    end 
+    iActor = tbPlayerList[nIndex]
+    return iActor,nIndex;
+end
