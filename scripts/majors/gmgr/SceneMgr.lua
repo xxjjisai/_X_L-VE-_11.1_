@@ -104,6 +104,7 @@ end
 function SceneMgr:Update(dt)
     if not self.bStart then return end;
     self:UpdateSystem();
+    if self.iPlayer == nil then return end;
     local px = self.iPlayer:GetiCompo("Position").x;
     local py = self.iPlayer:GetiCompo("Position").y;
     local pw = self.iPlayer:GetiCompo("Size").w;
@@ -187,27 +188,6 @@ function SceneMgr:KeyBoardDown(key, scancode, isrepeat)
             self.nPlayerIndex = self.nPlayerIndex + 1;
             self.iPlayer,self.nPlayerIndex = self.tbCurScene:GetPlayer(self.nPlayerIndex)
         end 
-
-        -- 切换动画
-        if key == "1" then 
-            local iAnimateSys = self.tbCurScene:GetSystemByName("AnimationSystem");
-            self.iPlayer:ChangeiCompoParam({
-                ["Animate"] = { sImg = "ball", nQuadW = 32, nQuadH = 32, nTotalFrame= 5, nLoop = 1, nTotalPlayCount = 10,nTimeAfterPlay = 0.07 };
-            })
-            iAnimateSys:ReSetFrame(self.iPlayer);
-            iAnimateSys:Play(self.iPlayer);
-        end 
-        if key == "2" then 
-            local iAnimateSys = self.tbCurScene:GetSystemByName("AnimationSystem");
-            self.iPlayer:ChangeiCompoParam({
-                ["Animate"] = { sImg = "tc", nQuadW = 30, nQuadH = 55, nTotalFrame= 18, nLoop = 0, nTotalPlayCount = 5,nTimeAfterPlay = 0.07 };
-            })
-            iAnimateSys:ReSetFrame(self.iPlayer);
-            iAnimateSys:Play(self.iPlayer,function()
-                ActorMgr:RemoveActor(self.iPlayer)
-            end);
-        end
-
 
     end
 end

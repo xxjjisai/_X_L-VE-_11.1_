@@ -11,8 +11,10 @@
 -- if key == "2" then 
 --     local iAnimateSys = self.tbCurScene:GetSystemByName("AnimationSystem");
 --     self.iPlayer:ChangeiCompoParam({
---         ["Animate"] = { sImg = "tc", nQuadW = 30, nQuadH = 55, nTotalFrame= 18, nLoop = 1, nTotalPlayCount = 10,nTimeAfterPlay = 0.07 };
+--         ["Animate"] = { sImg = "tc", nQuadW = 30, nQuadH = 55, nTotalFrame= 18, nLoop = 0, nTotalPlayCount = 5,nTimeAfterPlay = 0.07 };
 --     })
 --     iAnimateSys:ReSetFrame(self.iPlayer);
---     iAnimateSys:Play(self.iPlayer);
+--     iAnimateSys:Play(self.iPlayer,function()
+--         ActorMgr:RemoveActor(self.iPlayer)
+--     end);
 -- end

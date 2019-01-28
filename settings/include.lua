@@ -76,7 +76,7 @@ function Include:GlobalSystem()
     self:RequireHandler(strDir,"RectangleRenderSystem");
     self:RequireHandler(strDir,"LayerSortSystem");
     self:RequireHandler(strDir,"SpriteRenderSystem");
-    self:RequireHandler(strDir,"UISystem");
+    self:RequireHandler(strDir,"UserInterfaceSystem");
     self:RequireHandler(strDir,"AnimationSystem");
 end
 
