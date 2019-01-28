@@ -81,6 +81,7 @@ function Include:GlobalSystem()
     self:RequireHandler(strCommonDir,"SpriteRenderSystem");
     self:RequireHandler(strCommonDir,"UISystem");
     self:RequireHandler(strCommonDir,"AnimationSystem");
+    self:RequireHandler(strCommonDir,"UserInterfaceSystem");
 end
 
 function Include:GlobalModel()
