@@ -72,12 +72,15 @@ function Include:GlobalConfig()
 end
 
 function Include:GlobalSystem()
-    local strDir = "scripts/systems/";
-    self:RequireHandler(strDir,"RectangleRenderSystem");
-    self:RequireHandler(strDir,"LayerSortSystem");
-    self:RequireHandler(strDir,"SpriteRenderSystem");
-    self:RequireHandler(strDir,"UISystem");
-    self:RequireHandler(strDir,"AnimationSystem");
+    local strMysystemDir = "scripts/systems/mysystem/";
+    -- self:RequireHandler(strMysystemDir,"RectangleRenderSystem");
+
+    local strCommonDir = "scripts/systems/common/";
+    self:RequireHandler(strCommonDir,"RectangleRenderSystem");
+    self:RequireHandler(strCommonDir,"LayerSortSystem");
+    self:RequireHandler(strCommonDir,"SpriteRenderSystem");
+    self:RequireHandler(strCommonDir,"UISystem");
+    self:RequireHandler(strCommonDir,"AnimationSystem");
 end
 
 function Include:GlobalModel()
