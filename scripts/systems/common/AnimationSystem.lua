@@ -41,6 +41,9 @@ function AnimationSystem:ReSetFrame(iActor)
    -- for i = 1, nOffset do 
    --    table.remove(iActor:GetiCompo("Animate").tbQuad,i);
    -- end
+
+   iActor:GetiCompo("Animate").nLastTime = 0;
+   iActor:GetiCompo("Animate").nCurPlayCount = 0;
    iActor:GetiCompo("Animate").nTotalPlayCount = iActor:GetiCompo("Animate").nTotalPlayCount - nOffset;
    iActor:GetiCompo("Animate").iCurQuad = iActor:GetiCompo("Animate").tbQuad[nStartFrame or iActor:GetiCompo("Animate").nCurFrame];
 end

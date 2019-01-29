@@ -72,9 +72,6 @@ function Include:GlobalConfig()
 end
 
 function Include:GlobalSystem()
-    local strMysystemDir = "scripts/systems/mysystem/";
-    -- self:RequireHandler(strMysystemDir,"RectangleRenderSystem");
-
     local strCommonDir = "scripts/systems/common/";
     self:RequireHandler(strCommonDir,"RectangleRenderSystem");
     self:RequireHandler(strCommonDir,"LayerSortSystem");
@@ -82,6 +79,12 @@ function Include:GlobalSystem()
     self:RequireHandler(strCommonDir,"UISystem");
     self:RequireHandler(strCommonDir,"AnimationSystem");
     self:RequireHandler(strCommonDir,"UserInterfaceSystem");
+    self:RequireHandler(strCommonDir,"GameChainSystem");
+
+    local strMysystemDir = "scripts/systems/mysystem/";
+    self:RequireHandler(strMysystemDir,"PlayMechanism1");
+    self:RequireHandler(strMysystemDir,"PlayMechanism2");
+
 end
 
 function Include:GlobalModel()

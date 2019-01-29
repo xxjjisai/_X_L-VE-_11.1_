@@ -9,6 +9,7 @@ require("scripts/majors/base/Compo");
 require("scripts/majors/base/Scene");
 require("scripts/majors/base/System");
 require("scripts/majors/base/Model");
+require("scripts/majors/base/Chain");
 
 require("settings/Option");
 require("settings/include");
