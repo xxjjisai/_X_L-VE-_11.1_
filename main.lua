@@ -40,6 +40,7 @@ end
 function love.update(dt)
     if Option.bDoFileComplete then 
         Timer:update(dt); 
+        Tween.update(dt);
         GameMgr:Update(dt); 
     end 
 end

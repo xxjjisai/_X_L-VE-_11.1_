@@ -36,6 +36,7 @@ function Include:ThirdPartyLibrary()
     Blob                = require(strDir.."Blob");
     Utils               = require(strDir.."Utils");
     Katsudo             = require(strDir.."katsudo");
+    Tween               = require(strDir.."tween/tween");
     nuklear             = require("nuklear");
     -- socket              = require("socket");
 end
@@ -83,7 +84,6 @@ function Include:GlobalSystem()
 
     local strMysystemDir = "scripts/systems/mysystem/";
     self:RequireHandler(strMysystemDir,"PlayMechanism1");
-    self:RequireHandler(strMysystemDir,"PlayMechanism2");
 
 end
 

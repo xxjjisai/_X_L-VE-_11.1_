@@ -24,7 +24,11 @@ function Chain:Complete(pfn)
                 end
             end);
         end);
-    end 
+    else 
+        if pfn then
+            pfn();
+        end
+    end
 end
 
 function Chain:Execute(pfn)
@@ -36,5 +40,9 @@ function Chain:Execute(pfn)
                 end 
             end); 
         end);
-    end 
+    else 
+        if pfn then
+            pfn();
+        end
+    end
 end

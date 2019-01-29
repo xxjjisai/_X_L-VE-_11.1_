@@ -47,4 +47,15 @@
 --     self:StartHandler();
 -- end);
 
--- 游戏有限状态机
+-- 缓动用法 -- https://github.com/kikito/tween.lua
+-- local iScene = self:GetCurScene();
+-- local iAnimateSys = iScene:GetSystemByName("AnimationSystem");
+-- local iPlayer = iScene:GetPlayer(1);
+-- local w = iPlayer:GetiCompo("Size").w;
+-- local h = iPlayer:GetiCompo("Size").h;
+-- iPlayer:ChangeiCompoParam({
+--     ["Position"] = { x = (graphicsWidth/2) - (w/2), y = graphicsHeight + 90 };
+-- })
+-- Tween(2,iPlayer:GetiCompo("Position"),{ x = (graphicsWidth/2) - (w/2),y = graphicsHeight - h - 90},'inOutBack',function ()
+--     if pfn then pfn() end
+-- end)
